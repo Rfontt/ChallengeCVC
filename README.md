@@ -74,8 +74,9 @@ JWT_KEY = a chave você escolhe
     - AllUsers.js -> Rota em que qualquer usuário pode ter acesso caso esteja logado.
     - UsersAdm.js -> Rota em que apenas os usuários administradores podem ter acesso.
     - UsersCommom.js -> Rota em que apenas os usuários comuns podem ter acesso.
-
-  - index.js  -> Aquivo principal, pois é onde o servidor está rodando.
+  
+  - app.js -> aquivo em que instância tudo o que será usado na aplicação.
+  - server.js  -> Aquivo principal, pois é onde o servidor está rodando.
 
 - tests -> Pasta que fica responsável por realizar os testes nas rotas.
   - userAdm.test.js
