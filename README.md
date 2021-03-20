@@ -64,7 +64,8 @@ JWT_KEY = a chave você escolhe
     - AuthorizationAllUsers.js -> Arquivo que dá autorização a qualquer usuário.
     - AuthorizationUserAdm.js -> Arquivo que dá autorização apenas a usuários administradores.
 
-  - models -> É a camada que fica responsável por fazer o CRUD da aplicação. Ela é usada nos controllers que fornece as informações pedidas em cada função da class. Também tem relação com a pasta database, pois envia todas essas informações para ela.
+  - models -> É a camada que fica responsável por fazer o CRUD da aplicação. Ela é usada nos controllers que fornece as informações pedidas em cada função da class. Também tem relação com a pasta database, pois envia toda
+  s essas informações para ela.
     - Users -> Model responsável por armazenar o arquivo que tem a class Users, a qual realiza o CRUD.
       - Users.js
 
@@ -79,10 +80,33 @@ JWT_KEY = a chave você escolhe
 - tests -> Pasta que fica responsável por realizar os testes nas rotas.
   - userAdm.test.js
   - userCommom.test.js
+  - login.test.js
+
+# Rodar o projeto:
+
+- Baixe esse repositório.
+- Navegue até a pasta do projeto.
+- Dê um ```npm install``` para instalar as dependências.
+- Você possui duas opções para rodar o projeto:
+
+> Com o nodemon.
+> OBSERVAÇÃO: baixe o nodemon na sua máquina, eu já tenho-o globalmente e por isso não precisei baixá-lo, mas será necessário que você baixe para que não ocorra erros.
+
+1.
+```
+yarn dev ou npm run dev
+```
+
+> Sem o nodemon
+
+2.
+```
+yarn start ou npm run start
+```
 
 # Testes no projeto.
 
-Você pode realizar os testes por meio do postman ou insomnia. Para o cadastro de usuários não necessita de nenhum software exterior, pois nessa aplicação é usado o jest, o qual fica responsável por realizar testes automatizados em apenas um comando. Então para que você possa testar as rotas de cadastro de usuários comuns e administradores, navegue até a pasta do projeto e use o seguinte comando no seu terminal:
+Você pode realizar os testes por meio do postman ou insomnia. Para o cadastro de usuários e login não necessita de nenhum software exterior, pois nessa aplicação é usado o jest, o qual fica responsável por realizar testes automatizados em apenas um comando. Então para que você possa testar as rotas de cadastro de usuários comuns e administradores, navegue até a pasta do projeto e use o seguinte comando no seu terminal:
 
 ```
 yarn test ou npm run test
@@ -90,4 +114,41 @@ yarn test ou npm run test
 
 Mas caso queira testar manualmente, use um dos softwares mencionados anteriormente.
 
-No meu caso, uso o insomnia, então irei explicar como funciona nele:
+No meu caso, uso o insomnia, então irei explicar como funciona nele.
+
+- Primeiro você faz um cadastro de um usuário comum ou administrador.
+
+**rotas:** <br />
+**http://localhost:3030/usercommom** <br />
+**http://localhost:3030/useradm**  <br />
+
+![CreateUserCommom](./imagesGitHub/CreateUserCommom.png)
+
+![CreateUserAdm](./imagesGitHub/CreateUserAdm.png)
+
+- Depois você pode testar o login com ambos os usuários que criou. Nele será gerado um token que lhe dará acesso a página de home com qualquer usuário logado, mas para listar todos os usuários precisa do token de administrador.
+
+**rota:** <br />
+**http://localhost:3030/login**
+
+![CreateUserAdm](./imagesGitHub/login.png)
+
+- Logo após fazer o login com qualquer um dos usuários(administrador ou comum), vá até a rota home, a qual deseja boas vindas. Nela você vai colar o token que obteve no login juntamente com o prefixo Bearer.
+
+**rota:** <br />
+**http://localhost:3030/home**
+
+![token](./imagesGitHub/token.png)
+
+![home](./imagesGitHub/home.png)
+
+**Com o token correto você acessará a rota normalmente**
+
+- Agora na rota de selecionar usuários, apenas os que são administradores poderão ter acesso, então faça login como usuário administrador, pegue o token que lhe é mandado e cole, como feito anteriormente.
+
+**rota:** <br />
+**http://localhost:3030/useradm** //get
+
+![tokenUserAdm](./imagesGitHub/tokenUserAdm.png)
+
+![FindByUsers](./imagesGitHub/FindByUsers.png)
