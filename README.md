@@ -64,8 +64,7 @@ JWT_KEY = a chave você escolhe
     - AuthorizationAllUsers.js -> Arquivo que dá autorização a qualquer usuário.
     - AuthorizationUserAdm.js -> Arquivo que dá autorização apenas a usuários administradores.
 
-  - models -> É a camada que fica responsável por fazer o CRUD da aplicação. Ela é usada nos controllers que fornece as informações pedidas em cada função da class. Também tem relação com a pasta database, pois envia toda
-  s essas informações para ela.
+  - models -> É a camada que fica responsável por fazer o CRUD da aplicação. Ela é usada nos controllers que fornece as informações pedidas em cada função da class. Também tem relação com a pasta database, pois envia todas essas informações para ela.
     - Users -> Model responsável por armazenar o arquivo que tem a class Users, a qual realiza o CRUD.
       - Users.js
 
