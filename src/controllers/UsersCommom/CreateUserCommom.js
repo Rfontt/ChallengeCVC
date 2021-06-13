@@ -4,7 +4,7 @@ const ModelUser = require('../../models/Users/Users');
 async function CreateUsersCommom(req, res) {
   const { name, email, password } = req.body;
 
-  if (!email || !email || !password) {
+  if (!name || !email || !password) {
     res.status(400).send({
       Message: "Bad request. Fields undefined."
     })
